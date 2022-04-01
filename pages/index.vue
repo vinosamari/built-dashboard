@@ -6,5 +6,3 @@
 import ComingSoon from "~/components/ComingSoon.vue";
 export default {};
 </script>
-
-ComingSoon

@@ -47,7 +47,6 @@ export default {
       Lato: true,
       Raleway: true,
     },
-    display: "auto", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
     prefetch: true,
     preconnect: true,
     preload: true,

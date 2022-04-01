@@ -8,4 +8,8 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style>
+body {
+  @apply font-mono;
+}
+</style>

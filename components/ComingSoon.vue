@@ -7,17 +7,20 @@
     />
     <section class="formSection">
       <div class="comingSoonSection px-5">
-        <h1 class="header text-center mb-3">Loading...</h1>
         <h2>Leave us your details to notify you when we go live!</h2>
       </div>
       <form class="mainForm">
         <div class="formDiv">
           <label for="name">Player Name: </label>
-          <input type="text" placeholder="Enter Your Name..." />
+          <input type="text" placeholder="Enter Your Name..." v-model="name" />
         </div>
         <div class="formDiv">
           <label for="email">Player Email: </label>
-          <input type="email" placeholder="Enter Your Email..." />
+          <input
+            type="email"
+            placeholder="Enter Your Email..."
+            v-model="email"
+          />
         </div>
         <div class="formDiv">
           <label class="text-xs w-1/4" for="refCode "
@@ -45,10 +48,13 @@
 </template>
 
 <script>
+import emailjs from "@emailjs/browser";
 export default {
   mounted() {},
   data() {
     return {
+      name: "",
+      email: "",
       refCode: false,
     };
   },
@@ -58,6 +64,23 @@ export default {
     },
     generateRef() {
       this.refCode = true;
+    },
+    sendEmail() {
+      emailjs
+        .send(
+          "service_gameltdonline",
+          "service_gameltdonlineD",
+          this.$refs.form,
+          "YOUR_USER_ID"
+        )
+        .then(
+          (result) => {
+            console.log("SUCCESS!", result.text);
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
     },
   },
 };

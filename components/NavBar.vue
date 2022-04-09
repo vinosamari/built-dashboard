@@ -13,7 +13,7 @@
         <p class="link">GameBoy</p>
         <p class="link">GameGirl</p>
       </div>
-      <p class="logo hidden">Logo</p>
+      <p class="logo hidden md:block">Logo</p>
       <p class="currency">NGN</p>
     </section>
     <!-- SIGN UP/ SIGN IN -->
@@ -30,13 +30,13 @@ export default {};
 
 <style scoped>
 nav {
-  @apply p-3;
+  @apply w-full;
 }
 section {
   @apply flex justify-evenly p-3 text-center;
 }
 .arrivals {
-  @apply md:text-base shadow-2xl;
+  @apply md:text-base shadow-2xl bg-black text-white;
 }
 .arrivals p {
   @apply text-xs capitalize;
@@ -45,7 +45,7 @@ section {
   @apply border-b border-gray-500 pb-1;
 }
 .linksSection {
-  @apply mt-2  border-2 flex items-center justify-between;
+  @apply mt-2  border-2 flex items-center justify-evenly;
 }
 .linksSection div {
   @apply flex md:gap-x-3 gap-x-5;

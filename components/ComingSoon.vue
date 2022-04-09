@@ -32,7 +32,9 @@
             class="w-1/2 text-xs"
           />
         </div>
-        <button type="submit" class="notifyMe">Notify Me</button>
+        <button type="submit" class="notifyMe" @click.prevent="submitForm">
+          Notify Me
+        </button>
         <div class="referralDiv">
           <p class="text-xs text-center">
             Generate a referral code to invite your friends and win merch
@@ -60,18 +62,24 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log("submitted");
+      let params = {
+        name: this.name,
+        email: this.email,
+      };
+      this.sendEmail(params);
+      this.name = "";
+      this.email = "";
     },
     generateRef() {
       this.refCode = true;
     },
-    sendEmail() {
+    sendEmail(template_params) {
       emailjs
         .send(
           "service_gameltdonline",
-          "service_gameltdonlineD",
-          this.$refs.form,
-          "YOUR_USER_ID"
+          "template_y9g27in",
+          template_params,
+          "IRA9Aa5W4m-8n5q_Q"
         )
         .then(
           (result) => {

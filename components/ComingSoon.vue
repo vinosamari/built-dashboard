@@ -96,7 +96,7 @@ export default {
 
 <style scoped>
 main {
-  @apply min-h-screen flex flex-col items-center font-customOne;
+  @apply min-h-screen flex flex-col items-center font-mono;
 }
 .header {
   @apply font-customTwo text-2xl animate-pulse;

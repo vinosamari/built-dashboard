@@ -1,36 +1,73 @@
 <template>
   <nav>
-    <!-- LATEST ARRIVALS -->
+    <!-- discord ARRIVALS -->
     <section class="arrivals">
-      <p class="latest">
-        New arrivals |
-        <span class="moreInfo">Check out our latest collections</span>
+      <p class="discord">
+        Join our discord |
+        <span class="moreInfo">Get free merch & Perks</span>
       </p>
     </section>
-    <!-- LINKS -->
+    <!-- WIDE DISPLAY LINKS -->
     <section class="linksSection">
       <div>
-        <p class="link">GameBoy</p>
-        <p class="link">GameGirl</p>
+        <nuxt-link to="/" class="link">Home</nuxt-link>
+        <nuxt-link to="/" class="link">Shop</nuxt-link>
+        <!-- <nuxt-link to="/" class="link">My Profile</nuxt-link> -->
+        <nuxt-link to="/" class="link">Blog</nuxt-link>
+        <nuxt-link to="/" class="link">Contact</nuxt-link>
+      </div>
+
+      <img
+        src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/d671ff36-a00f-4229-38d2-ff5c93baa700/square"
+        class="bigLogo md:block hidden"
+        Logo2
+      />
+      <div>
+        <p class="locationCurrency2">🇳🇬</p>
+        <p class="currency">(&#8358;)NGN</p>
+      </div>
+    </section>
+    <!-- SMALL DISPLAY LINKS -->
+    <img
+      src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/d671ff36-a00f-4229-38d2-ff5c93baa700/square"
+      class="smallLogo md:hidden block"
+      Logo2
+    />
+    <section class="linksSectionMobile">
+      <div class="mobileLinks">
+        <nuxt-link to="/" class="link">Home</nuxt-link>
+        <nuxt-link to="/" class="link">Shop</nuxt-link>
+        <nuxt-link to="/" class="link">Blog</nuxt-link>
+        <nuxt-link to="/" class="link">Contact</nuxt-link>
+        <!-- <nuxt-link to="/" class="link">My Profile</nuxt-link> -->
       </div>
       <p class="logo hidden md:block">Logo</p>
-      <p class="currency">NGN</p>
+      <div class="locationCurrency">
+        <p class="currency">(&#8358;)NGN</p>
+        <p class="location">🇳🇬</p>
+      </div>
     </section>
     <!-- SIGN UP/ SIGN IN -->
-    <section>
+    <div class="signUpSection">
       <p class="link">Sign Up</p>
       <p class="link">Sign In</p>
-    </section>
+    </div>
   </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      showMenu: true,
+    };
+  },
+};
 </script>
 
 <style scoped>
 nav {
-  @apply w-full;
+  @apply w-full text-sm md:border-b md:border-black bg-gray-300 md:bg-white md:h-auto shadow-md;
 }
 section {
   @apply flex justify-evenly p-3 text-center;
@@ -41,13 +78,43 @@ section {
 .arrivals p {
   @apply text-xs capitalize;
 }
+.discord {
+  @apply text-sm;
+}
 .link {
-  @apply border-b border-gray-500 pb-1;
+  @apply border-b border-gray-500 px-2 pb-2 mb-2;
+}
+.link:active {
+  @apply animate-ping duration-700 ease-in-out;
 }
 .linksSection {
-  @apply mt-2  border-2 flex items-center justify-evenly;
+  @apply mt-2  border-2 md:flex gap-x-1 px-4  hidden mx-auto justify-evenly items-center;
 }
 .linksSection div {
   @apply flex md:gap-x-3 gap-x-5;
+}
+.linksSectionMobile {
+  @apply flex-col items-center justify-between md:hidden;
+}
+.mobileLinks {
+  @apply grid w-1/2;
+}
+.currency {
+  @apply mt-0 md:mt-0;
+}
+.signUpSection {
+  @apply md:border-0 flex justify-evenly p-3 text-center items-center;
+}
+.smallLogo {
+  @apply h-20 w-full object-contain bg-white py-2;
+}
+.bigLogo {
+  @apply h-10 object-contain mx-auto;
+}
+.locationCurrency {
+  @apply flex  w-1/4 items-center mt-3 justify-center bg-black text-black p-1 tracking-wide bg-opacity-30 md:block;
+}
+.locationCurrency p {
+  @apply mx-1;
 }
 </style>

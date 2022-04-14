@@ -1,7 +1,11 @@
 <template>
   <section>
     <slot>
-      <product-card v-for="product in productIntro" :key="product.id">
+      <product-card
+        class="prodCard"
+        v-for="product in productIntro"
+        :key="product.id"
+      >
         <h1 slot="header">Check out our newest arrivals</h1>
         <img slot="image" :src="product.image" alt="" />
         <p slot="details">{{ product.details }}</p>
@@ -20,10 +24,22 @@ export default {
           image:
             "https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/170abb67-7386-4a50-0626-982ba9f1e200/square",
           details:
-            "The Social Night collection does blah blah blah but it brings out more in blah blah",
+            "The GAME Social Night collection does blah blah blah but it brings out more in blah blah with urban streetwear designs curated with you in mind.",
         },
       ],
     };
+  },
+  mounted() {
+    this.setAnimation();
+  },
+  methods: {
+    setAnimation() {
+      this.$anime({
+        targets: ".prodCard",
+        opacity: [0, 1],
+        duration: 3000,
+      });
+    },
   },
 };
 </script>
@@ -34,5 +50,8 @@ section {
 }
 product-card {
   @apply mx-3;
+}
+h1 {
+  @apply border-b pb-2 border-black md:w-1/2 mx-auto font-bold;
 }
 </style>

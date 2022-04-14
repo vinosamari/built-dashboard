@@ -23,8 +23,8 @@
         Logo2
       />
       <div>
-        <p class="locationCurrency2">🇳🇬</p>
-        <p class="currency">(&#8358;)NGN</p>
+        <p class="currency">(₵)GHS</p>
+        <p class="location">🇬🇭</p>
       </div>
     </section>
     <!-- SMALL DISPLAY LINKS -->
@@ -43,9 +43,10 @@
       </div>
       <p class="logo hidden md:block">Logo</p>
       <div class="locationCurrency">
-        <p class="currency">(&#8358;)NGN</p>
-        <p class="location">🇳🇬</p>
+        <p class="currency">(₵)GHS</p>
+        <p class="location">🇬🇭</p>
       </div>
+      <p class="changeLocation locationCurrency">Change Currency</p>
     </section>
     <!-- SIGN UP/ SIGN IN -->
     <div class="signUpSection">
@@ -67,7 +68,7 @@ export default {
 
 <style scoped>
 nav {
-  @apply w-full text-sm md:border-b md:border-black bg-gray-300 md:bg-white md:h-auto shadow-md;
+  @apply w-full text-sm  bg-gray-300 md:bg-white md:h-auto shadow-md;
 }
 section {
   @apply flex justify-evenly p-3 text-center;
@@ -88,7 +89,7 @@ section {
   @apply animate-ping duration-700 ease-in-out;
 }
 .linksSection {
-  @apply mt-2  border-2 md:flex gap-x-1 px-4  hidden mx-auto justify-evenly items-center;
+  @apply mt-2  border-2 md:flex gap-x-1 px-10  hidden mx-auto justify-between items-center;
 }
 .linksSection div {
   @apply flex md:gap-x-3 gap-x-5;
@@ -100,7 +101,7 @@ section {
   @apply grid w-1/2;
 }
 .currency {
-  @apply mt-0 md:mt-0;
+  @apply mt-0 md:mt-0 font-bold;
 }
 .signUpSection {
   @apply md:border-0 flex justify-evenly p-3 text-center items-center;
@@ -109,12 +110,15 @@ section {
   @apply h-20 w-full object-contain bg-white py-2;
 }
 .bigLogo {
-  @apply h-10 object-contain mx-auto;
+  @apply h-10 object-contain  mr-36;
 }
 .locationCurrency {
   @apply flex  w-1/4 items-center mt-3 justify-center bg-black text-black p-1 tracking-wide bg-opacity-30 md:block;
 }
 .locationCurrency p {
   @apply mx-1;
+}
+.changeLocation {
+  @apply text-xs w-1/2;
 }
 </style>

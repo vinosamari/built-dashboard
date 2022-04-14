@@ -7,17 +7,21 @@
     />
     <section class="formSection">
       <div class="comingSoonSection px-5">
-        <h1 class="header text-center mb-3">Loading...</h1>
+        <!-- <h1 class="header text-center mb-3">Loading...</h1> -->
         <h2>Leave us your details to notify you when we go live!</h2>
       </div>
-      <form class="mainForm">
+      <form class="mainForm" @submit.prevent="submitForm">
         <div class="formDiv">
           <label for="name">Player Name: </label>
-          <input type="text" placeholder="Enter Your Name..." />
+          <input type="text" placeholder="Enter Your Name..." v-model="name" />
         </div>
         <div class="formDiv">
           <label for="email">Player Email: </label>
-          <input type="email" placeholder="Enter Your Email..." />
+          <input
+            type="email"
+            placeholder="Enter Your Email..."
+            v-model="email"
+          />
         </div>
         <div class="formDiv">
           <label class="text-xs w-1/4" for="refCode "
@@ -45,19 +49,45 @@
 </template>
 
 <script>
+import emailjs from "@emailjs/browser";
 export default {
   mounted() {},
   data() {
     return {
       refCode: false,
+      name: "",
+      email: "",
     };
   },
   methods: {
-    submitForm() {
-      console.log("submitted");
+    async submitForm() {
+      let templateParams = {
+        name: this.name,
+        email: this.email,
+      };
+      this.sendEmail(templateParams);
     },
     generateRef() {
       this.refCode = true;
+    },
+    sendEmail(templateParams) {
+      emailjs
+        .send(
+          "service_gameltdonline",
+          "template_y9g27in",
+          templateParams,
+          "IRA9Aa5W4m-8n5q_Q"
+        )
+        .then(
+          (result) => {
+            this.name = "";
+            this.email = "";
+            console.log("SUCCESS!", result.text);
+          },
+          (error) => {
+            console.log("FAILED...", error.text);
+          }
+        );
     },
   },
 };

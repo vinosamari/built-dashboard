@@ -2,10 +2,10 @@
   <nav>
     <!-- DISCORD ARRIVALS -->
     <section class="arrivals">
-      <p class="discord">
+      <a href="https://discord.gg/TZx4ZwRB" class="discord">
         Join our discord |
         <span class="moreInfo">Get free merch & Perks</span>
-      </p>
+      </a>
     </section>
     <!-- WIDE DISPLAY LINKS -->
     <section class="linksSection">
@@ -31,12 +31,17 @@
     <img
       src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/d671ff36-a00f-4229-38d2-ff5c93baa700/square"
       class="smallLogo md:hidden block"
-      Logo2
     />
-    <button class="menuBtn md:hidden" @click="showMenu = !showMenu">
+    <button
+      class="menuBtn md:hidden"
+      @click="$nuxt.$store.dispatch('toggleMenu')"
+    >
       <menu-button></menu-button>
     </button>
-    <section class="linksSectionMobile" v-show="showMenu">
+    <button class="cartBtn md:hidden" @click="$nuxt.$router.push('/cart')">
+      <cart-icon></cart-icon>
+    </button>
+    <section class="linksSectionMobile" v-show="$nuxt.$store.state.showMenu">
       <div class="mobileLinks">
         <nuxt-link to="/" class="link">Home</nuxt-link>
         <nuxt-link to="/store" class="link">Store</nuxt-link>
@@ -44,6 +49,8 @@
         <nuxt-link to="/" class="link">Contact</nuxt-link>
       </div>
       <p class="logo hidden md:block">Logo</p>
+      <!-- CART ICON SMALL SCREENS -->
+
       <div class="locationCurrency">
         <p class="currency">(₵)GHS</p>
         <p class="location">🇬🇭</p>
@@ -114,6 +121,9 @@ section {
 }
 .menuBtn {
   @apply text-center w-auto mx-auto absolute bottom-6 left-5;
+}
+.cartBtn {
+  @apply text-center w-auto mx-auto absolute bottom-6 right-5;
 }
 .changeCurrency {
   @apply text-xs w-1/2 bg-opacity-30 rounded-md tracking-tighter;

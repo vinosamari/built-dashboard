@@ -5,9 +5,13 @@
       <img :src="product.image_url" :alt="product.name" slot="image" />
       <div class="radioGroup" slot="buttonGroup">
         <label :for="product.name" v-for="size in product.sizes" :key="size.id"
-          ><input type="radio" :name="product.name" :id="product.id" />{{
-            size
-          }}</label
+          ><input
+            type="radio"
+            :name="product.name"
+            :id="product.name"
+            :value="size"
+            v-model="selectedSize"
+          />{{ size }}</label
         >
       </div>
     </store-product-card>
@@ -16,10 +20,20 @@
 
 <script>
 export default {
+  mounted() {
+    this.$store.dispatch("closeMenu");
+  },
   data() {
     return {
       products: this.$store.state.allProducts,
+      selectedSize: "",
     };
+  },
+  methods: {
+    // sizeValue(e) {
+    //   this.selectedSize = e.target.value;
+    //   console.log(this.selectedSize);
+    // },
   },
 };
 </script>
@@ -32,6 +46,6 @@ label {
   @apply flex gap-x-1 bg-transparent my-2;
 }
 input {
-  @apply bg-white p-2;
+  @apply p-2;
 }
 </style>

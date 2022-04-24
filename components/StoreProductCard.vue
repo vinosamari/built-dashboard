@@ -6,7 +6,7 @@
         src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/eec16246-5cea-43a1-22c2-efded4575300/square"
         alt=""
     /></slot>
-    <p class="body"><slot name="details">Info goes here</slot></p>
+    <!-- <p class="body"><slot name="details">Info goes here</slot></p> -->
     <slot name="buttonGroup"></slot>
     <button><slot name="button">Add to cart</slot></button>
   </div>
@@ -20,11 +20,11 @@ export default {
 
 <style scoped>
 div {
-  box-shadow: 10px 70px 136px 34px rgba(0, 0, 0, 0.26);
-  @apply w-3/4 md:w-1/2  flex  flex-col items-center justify-center  mb-4 p-7  mx-auto rounded-lg   bg-gray-200 bg-opacity-80;
+  box-shadow: 10px 70px 136px 34px rgba(0, 0, 0, 0.126);
+  @apply w-3/4 md:w-1/2  flex  flex-col items-center justify-center  mb-4 p-7  mx-auto rounded-lg   bg-gray-100 bg-opacity-80;
 }
 h1 {
-  @apply text-sm  md:text-xl my-3 uppercase md:border-0  w-full text-center rounded-sm px-4;
+  @apply md:text-2xl mt-3 uppercase md:border-0  w-full text-center rounded-sm px-4 font-bold;
 }
 img {
   @apply mb-4 rounded-md h-auto w-full object-cover border-2 border-white md:h-96 md:w-auto;

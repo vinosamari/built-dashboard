@@ -1,12 +1,18 @@
 export const state = () => ({
   country: "GH",
-  navbaOpen: false,
+  showMenu: false,
   allProducts: [],
 });
 
 export const mutations = {
   ADD_ITEM: (state, item) => {
     state.allProducts.push(item);
+  },
+  CLOSE_MENU: (state) => {
+    state.showMenu = false;
+  },
+  TOGGLE_MENU: (state) => {
+    state.showMenu = !state.showMenu;
   },
 };
 
@@ -43,5 +49,11 @@ export const actions = {
         ctx.commit("ADD_ITEM", result.data());
       });
     });
+  },
+  closeMenu: (ctx) => {
+    ctx.commit("CLOSE_MENU");
+  },
+  toggleMenu: (ctx) => {
+    ctx.commit("TOGGLE_MENU");
   },
 };

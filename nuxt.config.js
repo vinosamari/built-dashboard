@@ -105,7 +105,7 @@ export default {
       this.$anime({
         targets: el,
         opacity: [0, 1],
-        duration: 500,
+        duration: 250,
         easing: "easeInOutSine",
         complete: done,
       });
@@ -115,7 +115,7 @@ export default {
       this.$anime({
         targets: el,
         opacity: [1, 0],
-        duration: 500,
+        duration: 250,
         easing: "easeInOutSine",
         complete: done,
       });

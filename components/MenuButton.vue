@@ -9,8 +9,8 @@
     viewBox="0 0 294.843 294.843"
     style="enable-background: new 0 0 294.843 294.843"
     xml:space="preserve"
-    height="2rem"
     fill="black"
+    height="2rem"
   >
     <g>
       <path

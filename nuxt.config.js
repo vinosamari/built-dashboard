@@ -4,11 +4,15 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "gameofficial",
+    title: "GAME",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      {
+        hid: "description",
+        name: "description",
+        content: "Official Store for Globally African Made Exceptional(GAME)",
+      },
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
@@ -36,13 +40,32 @@ export default {
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
+    // FIREBASE CONFIG
+    [
+      "@nuxtjs/firebase",
+      {
+        config: {
+          apiKey: "AIzaSyCBqQCi_R0-rDQDJfOvTHqrx83sRkG0cDI",
+          authDomain: "gameofficial-e51ca.firebaseapp.com",
+          projectId: "gameofficial-e51ca",
+          storageBucket: "gameofficial-e51ca.appspot.com",
+          messagingSenderId: "107814311531",
+          appId: "1:107814311531:web:c9f1bc3dd517dac146c32e",
+          measurementId: "G-SN7H5NJ89V",
+        },
+        services: {
+          auth: true, // Just as example. Can be any other service.
+          firestore: true,
+        },
+      },
+    ],
   ],
 
   // GOOGLE FONTS
   googleFonts: {
     families: {
       Monteserrat: true,
-      "IBM Plex Mono": true,
+      "Fira Mono": true,
       "Press Start 2P": true,
       Lato: true,
       Raleway: true,

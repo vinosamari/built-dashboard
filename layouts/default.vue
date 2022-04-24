@@ -9,15 +9,10 @@
 import NavBar from "~/components/NavBar.vue";
 export default {
   components: { NavBar },
-  // mounted() {
-  //   if (navigator.geolocation) {
-  //     //check if geolocation is available
-  //     navigator.geolocation.getCurrentPosition(function (position) {
-  //       console.log("Good");
-  //       console.log(position);
-  //     });
-  //   }
-  // },
+  mounted() {
+    // this.$store.dispatch("getUserLocation");
+    this.$store.dispatch("getDbProducts");
+  },
 };
 </script>
 

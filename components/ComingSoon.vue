@@ -52,7 +52,6 @@
 <script>
 import emailjs from "@emailjs/browser";
 export default {
-  mounted() {},
   data() {
     return {
       name: "",
@@ -96,7 +95,7 @@ export default {
 
 <style scoped>
 main {
-  @apply min-h-screen flex flex-col items-center font-mono;
+  @apply min-h-screen flex flex-col items-center font-customTwo;
 }
 .header {
   @apply font-customTwo text-2xl animate-pulse;

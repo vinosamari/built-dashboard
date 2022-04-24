@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <!-- discord ARRIVALS -->
+    <!-- DISCORD ARRIVALS -->
     <section class="arrivals">
       <p class="discord">
         Join our discord |
@@ -11,10 +11,10 @@
     <section class="linksSection">
       <div>
         <nuxt-link to="/" class="link">Home</nuxt-link>
-        <nuxt-link to="/" class="link">Shop</nuxt-link>
-        <!-- <nuxt-link to="/" class="link">My Profile</nuxt-link> -->
-        <nuxt-link to="/" class="link">Blog</nuxt-link>
-        <nuxt-link to="/" class="link">Contact</nuxt-link>
+        <nuxt-link to="/store" class="link">Store</nuxt-link>
+        <nuxt-link to="/blog" class="link">Blog</nuxt-link>
+        <nuxt-link to="/contact" class="link">Contact</nuxt-link>
+        <nuxt-link to="/cart" class="link">Cart</nuxt-link>
       </div>
 
       <img
@@ -33,26 +33,23 @@
       class="smallLogo md:hidden block"
       Logo2
     />
-    <section class="linksSectionMobile">
+    <button class="menuBtn md:hidden" @click="showMenu = !showMenu">
+      <menu-button></menu-button>
+    </button>
+    <section class="linksSectionMobile" v-show="showMenu">
       <div class="mobileLinks">
         <nuxt-link to="/" class="link">Home</nuxt-link>
-        <nuxt-link to="/" class="link">Shop</nuxt-link>
+        <nuxt-link to="/" class="link">Store</nuxt-link>
         <nuxt-link to="/" class="link">Blog</nuxt-link>
         <nuxt-link to="/" class="link">Contact</nuxt-link>
-        <!-- <nuxt-link to="/" class="link">My Profile</nuxt-link> -->
       </div>
       <p class="logo hidden md:block">Logo</p>
       <div class="locationCurrency">
         <p class="currency">(₵)GHS</p>
         <p class="location">🇬🇭</p>
       </div>
-      <p class="changeLocation locationCurrency">Change Currency</p>
+      <p class="changeCurrency locationCurrency">Change Currency</p>
     </section>
-    <!-- SIGN UP/ SIGN IN -->
-    <div class="signUpSection">
-      <p class="link">Sign Up</p>
-      <p class="link">Sign In</p>
-    </div>
   </nav>
 </template>
 
@@ -60,7 +57,7 @@
 export default {
   data() {
     return {
-      showMenu: true,
+      showMenu: false,
     };
   },
 };
@@ -68,7 +65,7 @@ export default {
 
 <style scoped>
 nav {
-  @apply w-full text-sm  bg-gray-300 md:bg-white md:h-auto shadow-md;
+  @apply w-full text-sm  md:bg-white md:h-auto shadow-md flex-col md:block justify-center items-center relative;
 }
 section {
   @apply flex justify-evenly p-3 text-center;
@@ -95,7 +92,7 @@ section {
   @apply flex md:gap-x-3 gap-x-5;
 }
 .linksSectionMobile {
-  @apply flex-col items-center justify-between md:hidden;
+  @apply flex-col items-center justify-between md:hidden absolute w-full bg-gray-100 shadow-2xl;
 }
 .mobileLinks {
   @apply grid w-1/2;
@@ -115,10 +112,10 @@ section {
 .locationCurrency {
   @apply flex  w-1/4 items-center mt-3 justify-center bg-black text-black p-1 tracking-wide bg-opacity-30 md:block;
 }
-.locationCurrency p {
-  @apply mx-1;
+.menuBtn {
+  @apply text-center w-auto mx-auto absolute bottom-6 left-5;
 }
-.changeLocation {
-  @apply text-xs w-1/2;
+.changeCurrency {
+  @apply text-xs w-1/2 bg-opacity-30 rounded-md tracking-tighter;
 }
 </style>

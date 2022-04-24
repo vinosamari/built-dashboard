@@ -1,6 +1,6 @@
 <template>
   <section>
-    <slot>
+    <client-only>
       <product-card
         class="prodCard"
         v-for="product in productIntro"
@@ -9,8 +9,9 @@
         <h1 slot="header">Check out our newest arrivals</h1>
         <img slot="image" :src="product.image" alt="" />
         <p slot="details">{{ product.details }}</p>
+        <nuxt-link to="/store" slot="button">Press Start</nuxt-link>
       </product-card>
-    </slot>
+    </client-only>
   </section>
 </template>
 
@@ -29,18 +30,6 @@ export default {
       ],
     };
   },
-  mounted() {
-    this.setAnimation();
-  },
-  methods: {
-    setAnimation() {
-      this.$anime({
-        targets: ".prodCard",
-        opacity: [0, 1],
-        duration: 3000,
-      });
-    },
-  },
 };
 </script>
 
@@ -53,5 +42,8 @@ product-card {
 }
 h1 {
   @apply border-b pb-2 border-black md:w-1/2 mx-auto font-bold;
+}
+a {
+  @apply bg-black font-mono tracking-widest px-10 py-2 rounded-sm text-white uppercase font-bold my-3 animate-pulse text-sm md:text-base shadow-2xl;
 }
 </style>

@@ -1,19 +1,35 @@
 <template>
   <div>
-    <h1 class="header"><slot name="header">Header</slot></h1>
-    <slot name="image">
-      <img
-        src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/eec16246-5cea-43a1-22c2-efded4575300/square"
-        alt=""
-    /></slot>
-    <p class="body"><slot name="details">Info goes here</slot></p>
-    <button>Press start</button>
+    <slot>
+      <h1 class="header"><slot name="header">Header</slot></h1>
+      <slot name="image">
+        <img
+          src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/eec16246-5cea-43a1-22c2-efded4575300/square"
+          alt=""
+      /></slot>
+      <p class="body"><slot name="details">Info goes here</slot></p>
+      <slot name="button"><nuxt-link to="/">Press start</nuxt-link></slot>
+    </slot>
   </div>
 </template>
 
 <script>
 export default {
   props: ["product"],
+  mounted() {
+    this.setAnimation();
+  },
+  methods: {
+    setAnimation() {
+      this.$anime({
+        targets: [".prodCard", ".header", ".image", ".body", ".button"],
+        opacity: [0, 1],
+        duration: 2000,
+        delay: this.$anime.stagger(100),
+        easing: "easeInOutSine",
+      });
+    },
+  },
 };
 </script>
 
@@ -31,7 +47,7 @@ img {
 p {
   @apply font-mono capitalize my-2 text-sm px-6 text-center font-bold;
 }
-button {
+a {
   @apply bg-black font-mono tracking-widest px-10 py-2 rounded-sm text-white uppercase font-bold my-3 animate-pulse;
 }
 </style>

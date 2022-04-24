@@ -39,7 +39,7 @@
     <section class="linksSectionMobile" v-show="showMenu">
       <div class="mobileLinks">
         <nuxt-link to="/" class="link">Home</nuxt-link>
-        <nuxt-link to="/" class="link">Store</nuxt-link>
+        <nuxt-link to="/store" class="link">Store</nuxt-link>
         <nuxt-link to="/" class="link">Blog</nuxt-link>
         <nuxt-link to="/" class="link">Contact</nuxt-link>
       </div>

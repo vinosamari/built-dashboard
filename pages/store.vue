@@ -26,12 +26,12 @@ export default {
 
 <style scoped>
 .radioGroup {
-  @apply flex-col items-center justify-center text-black w-auto py-1 px-2 uppercase text-xs font-bold;
+  @apply grid auto-rows-fr text-black w-full py-1 px-2 uppercase text-xs font-bold;
 }
 label {
   @apply flex gap-x-1 bg-transparent my-2;
 }
 input {
-  @apply bg-white;
+  @apply bg-white p-2;
 }
 </style>

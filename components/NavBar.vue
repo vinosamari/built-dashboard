@@ -40,6 +40,7 @@
     </button>
     <button class="cartBtn md:hidden" @click="$nuxt.$router.push('/cart')">
       <cart-icon></cart-icon>
+      <span class="orderTotal">0</span>
     </button>
     <section class="linksSectionMobile" v-show="$nuxt.$store.state.showMenu">
       <div class="mobileLinks">
@@ -72,7 +73,7 @@ export default {
 
 <style scoped>
 nav {
-  @apply w-full text-sm  md:bg-white md:h-auto shadow-md flex-col md:block justify-center items-center relative;
+  @apply w-full text-sm  md:bg-white md:h-auto shadow-2xl flex-col md:block justify-center items-center relative;
 }
 section {
   @apply flex justify-evenly p-3 text-center;
@@ -122,8 +123,12 @@ section {
 .menuBtn {
   @apply text-center w-auto mx-auto absolute bottom-6 left-5;
 }
+
 .cartBtn {
   @apply text-center w-auto mx-auto absolute bottom-6 right-5;
+}
+.orderTotal {
+  @apply text-xs bg-green-500 absolute  bottom-6  rounded-full p-1 font-sans;
 }
 .changeCurrency {
   @apply text-xs w-1/2 bg-opacity-30 rounded-md tracking-tighter;

@@ -7,10 +7,6 @@
     />
     <section class="formSection">
       <div class="comingSoonSection px-5">
-<<<<<<< HEAD
-        <!-- <h1 class="header text-center mb-3">Loading...</h1> -->
-=======
->>>>>>> staging
         <h2>Leave us your details to notify you when we go live!</h2>
       </div>
       <form class="mainForm" @submit.prevent="submitForm">
@@ -66,50 +62,30 @@ export default {
     };
   },
   methods: {
-<<<<<<< HEAD
     async submitForm() {
       let templateParams = {
         name: this.name,
         email: this.email,
       };
       this.sendEmail(templateParams);
-=======
-    submitForm() {
-      let params = {
-        name: this.name,
-        email: this.email,
-      };
-      this.sendEmail(params);
-      this.name = "";
-      this.email = "";
->>>>>>> staging
     },
     generateRef() {
       this.refCode = true;
     },
-<<<<<<< HEAD
     sendEmail(templateParams) {
-=======
-    sendEmail(template_params) {
->>>>>>> staging
       emailjs
         .send(
           "service_gameltdonline",
           "template_y9g27in",
-<<<<<<< HEAD
           templateParams,
-=======
-          template_params,
->>>>>>> staging
+
           "IRA9Aa5W4m-8n5q_Q"
         )
         .then(
           (result) => {
-<<<<<<< HEAD
             this.name = "";
             this.email = "";
-=======
->>>>>>> staging
+
             console.log("SUCCESS!", result.text);
           },
           (error) => {

@@ -21,18 +21,21 @@ export const actions = {
     if (navigator.geolocation) {
       //check if geolocation is available
       navigator.geolocation.getCurrentPosition((position) => {
-        // const { longitude, latitude } = position.coords;
-        // $nuxt.$axios
-        //   .get(
-        //     "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-        //       latitude +
-        //       "," +
-        //       longitude +
-        //       "&sensor=false"
-        //   )
-        //   .then((result) => {
-        //     console.log(result);
-        //   });
+        const { longitude, latitude } = position.coords;
+        $nuxt.$axios
+          .get(
+            "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+              latitude +
+              "," +
+              longitude +
+              "&sensor=false&key=AIzaSyDGeaPZAOZYZSlQLpkl67gATCdlpO865BE"
+          )
+          .then((result) => {
+            let resultData = result.data.plus_code.compound_code;
+            if (resultData.includes("Ghana")) {
+              console.log("AKWAABA");
+            }
+          });
         // console.log(longitude);
         // console.log(latitude);
         // console.log(position);

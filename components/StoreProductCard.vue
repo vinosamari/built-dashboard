@@ -40,7 +40,7 @@ div {
   @apply w-3/4 md:w-1/2  flex  flex-col items-center justify-center  mb-4 p-7  mx-auto rounded-lg   bg-gray-100 bg-opacity-80 my-2;
 }
 h1 {
-  @apply text-xl  md:text-2xl uppercase md:border-0   w-full text-center rounded-sm px-2 font-bold shadow-md py-1;
+  @apply text-lg uppercase md:border-0   w-full text-center rounded-sm px-2 font-bold py-1;
 }
 img {
   @apply rounded-md h-auto w-full object-cover border-2 border-white md:h-96 md:w-auto shadow-md mb-2;

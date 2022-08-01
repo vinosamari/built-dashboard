@@ -90,3 +90,7 @@ sw.*
 *.swp
 
 defTW.js
+p1.json
+p2.json
+./p1.json
+./p2.json

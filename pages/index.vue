@@ -1,8 +1,15 @@
 <template>
-  <coming-soon></coming-soon>
+  <hero></hero>
 </template>
 
 <script>
-import ComingSoon from "~/components/ComingSoon.vue";
-export default {};
+import Hero from "~/components/Hero.vue";
+export default {
+  components: { Hero },
+  mounted() {
+    this.$store.dispatch("closeMenu");
+  },
+};
 </script>
+
+<style scoped></style>

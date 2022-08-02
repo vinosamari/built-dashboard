@@ -49,7 +49,12 @@ export const actions = {
     // // LOOP THROUGH THE ARRAY AND FETCH THE DOC DATA AND STORE IN AN ARRAY
     dbProducts.get().then((results) => {
       results.forEach((result) => {
-        ctx.commit("ADD_ITEM", result.data());
+        let resObj = {
+          id: result.id,
+          data: result.data(),
+        };
+
+        ctx.commit("ADD_ITEM", resObj);
       });
     });
   },

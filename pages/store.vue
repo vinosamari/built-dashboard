@@ -5,8 +5,12 @@
       :key="id"
       :product="product"
     >
-      <h1 slot="header">{{ product.name }}</h1>
-      <img :src="product.image_url" :alt="product.name" slot="image" />
+      <h1 slot="header">{{ product.data.name }}</h1>
+      <img
+        :src="product.data.image_url"
+        :alt="product.data.name"
+        slot="image"
+      />
     </store-product-card>
   </div>
 </template>

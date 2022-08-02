@@ -1,26 +1,29 @@
 <template>
-  <div>
+  <nuxt-link :to="`/products/${product.id}`">
     <h1 class="header"><slot name="header">Header</slot></h1>
     <slot name="image">
       <img
         src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/eec16246-5cea-43a1-22c2-efded4575300/square"
         alt=""
     /></slot>
-    <slot name="sizesButtonGroup">
+    <!-- <slot name="sizesButtonGroup">
       <section class="buttonGroup">
-        <label :for="product.name" v-for="size in product.sizes" :key="size.id"
+        <label
+          :for="product.data.name"
+          v-for="size in product.data.sizes"
+          :key="size.id"
           ><input
             type="radio"
-            :name="product.name"
-            :id="product.name"
+            :name="product.data.name"
+            :id="product.data.name"
             :value="size"
             v-model="selectedSize"
           />{{ size }}</label
         >
       </section>
-    </slot>
+    </slot> -->
     <button><slot name="button">Add to cart</slot></button>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -35,7 +38,7 @@ export default {
 </script>
 
 <style scoped>
-div {
+a {
   box-shadow: 10px 70px 136px 34px rgba(0, 0, 0, 0.126);
   @apply w-3/4 md:w-1/2  flex  flex-col items-center justify-center  mb-4 p-7  mx-auto rounded-lg   bg-gray-100 bg-opacity-80 my-2;
 }
@@ -51,7 +54,7 @@ p {
 .buttonGroup {
   @apply grid grid-cols-3 my-2;
 }
-label {
+/* label {
   @apply uppercase flex items-center text-sm justify-center font-bold px-2;
 }
 input[type="radio"] {
@@ -59,7 +62,7 @@ input[type="radio"] {
 }
 input[type="radio"]:checked {
   @apply bg-black focus:ring-0;
-}
+} */
 button {
   @apply bg-black font-mono tracking-widest px-10 py-2 rounded-sm text-white uppercase font-bold mt-2;
 }

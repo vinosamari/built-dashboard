@@ -7,7 +7,7 @@
           src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/eec16246-5cea-43a1-22c2-efded4575300/square"
           alt=""
       /></slot>
-      <p class="body"><slot name="details">Info goes here</slot></p>
+      <!-- <p class="body"><slot name="details">Info goes here</slot></p> -->
       <slot name="button"><nuxt-link to="/">Press start</nuxt-link></slot>
     </slot>
   </div>

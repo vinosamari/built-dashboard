@@ -8,7 +8,7 @@
       >
         <h1 slot="header">Check out our newest arrivals</h1>
         <img slot="image" :src="product.image" alt="" />
-        <p slot="details">{{ product.details }}</p>
+        <!-- <p slot="details">{{ product.details }}</p> -->
         <nuxt-link to="/store" slot="button">Press Start</nuxt-link>
       </product-card>
     </client-only>
@@ -24,8 +24,7 @@ export default {
           header: "Featured Product",
           image:
             "https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/170abb67-7386-4a50-0626-982ba9f1e200/square",
-          details:
-            "The GAME Social Night collection does blah blah blah but it brings out more in blah blah with urban streetwear designs curated with you in mind.",
+          details: "The GAME Social Night collection.",
         },
       ],
     };

@@ -12,7 +12,7 @@
       <div>
         <nuxt-link to="/" class="link">Home</nuxt-link>
         <nuxt-link to="/store" class="link">Store</nuxt-link>
-        <nuxt-link to="/blog" class="link">Blog</nuxt-link>
+        <nuxt-link to="/lookbook" class="link">Lookbook</nuxt-link>
         <nuxt-link to="/contact" class="link">Contact</nuxt-link>
         <nuxt-link to="/cart" class="link">Cart</nuxt-link>
       </div>
@@ -24,7 +24,7 @@
       />
       <div>
         <p class="currency">(₵)GHS</p>
-        <p class="location">🇬🇭</p>
+        <!-- <p class="location">🇬🇭</p> -->
       </div>
     </section>
     <!-- SMALL DISPLAY LINKS -->
@@ -46,7 +46,7 @@
       <div class="mobileLinks">
         <nuxt-link to="/" class="link">Home</nuxt-link>
         <nuxt-link to="/store" class="link">Store</nuxt-link>
-        <nuxt-link to="/" class="link">Blog</nuxt-link>
+        <nuxt-link to="/lookbook" class="link">Lookbook</nuxt-link>
         <nuxt-link to="/" class="link">Contact</nuxt-link>
       </div>
       <p class="logo hidden md:block">Logo</p>
@@ -54,9 +54,9 @@
 
       <div class="locationCurrency">
         <p class="currency">(₵)GHS</p>
-        <p class="location">🇬🇭</p>
+        <!-- <p class="location">🇬🇭</p> -->
       </div>
-      <p class="changeCurrency locationCurrency">Change Currency</p>
+      <!-- <p class="changeCurrency locationCurrency">Change Currency</p> -->
     </section>
   </nav>
 </template>

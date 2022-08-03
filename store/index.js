@@ -14,6 +14,9 @@ export const mutations = {
   TOGGLE_MENU: (state) => {
     state.showMenu = !state.showMenu;
   },
+  INIT_PRODUCTS_ARRAY: (state) => {
+    state.allProducts = [];
+  },
 };
 
 export const actions = {
@@ -47,14 +50,15 @@ export const actions = {
   getDbProducts: (ctx) => {
     let dbProducts = $nuxt.$fire.firestore.collection("products");
     // // LOOP THROUGH THE ARRAY AND FETCH THE DOC DATA AND STORE IN AN ARRAY
-    dbProducts.get().then((results) => {
-      results.forEach((result) => {
-        let resObj = {
-          id: result.id,
-          data: result.data(),
+    dbProducts.onSnapshot((querySnapshot) => {
+      // INITIALIZE ARRAY BEFORE TAKING IN NEW ITEMS ON SNAPSHOT UPDATE
+      ctx.commit("INIT_PRODUCTS_ARRAY");
+      querySnapshot.forEach((doc) => {
+        let changeObj = {
+          id: doc.id,
+          data: doc.data(),
         };
-
-        ctx.commit("ADD_ITEM", resObj);
+        ctx.commit("ADD_ITEM", changeObj);
       });
     });
   },

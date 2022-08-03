@@ -6,22 +6,6 @@
         src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/eec16246-5cea-43a1-22c2-efded4575300/square"
         alt=""
     /></slot>
-    <!-- <slot name="sizesButtonGroup">
-      <section class="buttonGroup">
-        <label
-          :for="product.data.name"
-          v-for="size in product.data.sizes"
-          :key="size.id"
-          ><input
-            type="radio"
-            :name="product.data.name"
-            :id="product.data.name"
-            :value="size"
-            v-model="selectedSize"
-          />{{ size }}</label
-        >
-      </section>
-    </slot> -->
     <button><slot name="button">Add to cart</slot></button>
   </nuxt-link>
 </template>

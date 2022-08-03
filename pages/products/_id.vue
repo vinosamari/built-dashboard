@@ -1,7 +1,11 @@
 <template>
   <div>
+    <!-- <img
+      src="https://www.dropbox.com/s/ojjh7jrvnu56npr/ASH_PACMAN_HOODIE_FRONT.webp"
+      alt=""
+    /> -->
     <!-- {{ getProduct }} -->
-    <lingallery
+    <!-- <lingallery
       :width="600"
       :height="400"
       :items="[
@@ -25,9 +29,9 @@
           thumbnail: 'https://picsum.photos/64/64/?image=20',
         },
       ]"
-    />
-    {{ getProduct }}
-    <img :src="getProduct.data.image_url" alt="" />
+    /> -->
+    {{ this.product }}
+    <!-- <img :src="getProduct.data.image_url" alt="" /> -->
     <!--<h1>{{ getProduct.data.name }}</h1>
     <section class="buttonGroup">
       <label
@@ -48,22 +52,48 @@
 </template>
 
 <script>
+// export default {
+//   async asyncData({ params, redirect }) {
+//     const allProducts = this.$store.state.allProducts;
+
+//     const filteredProduct = allProducts.find(
+//       (product) => product.id == params.id
+//     );
+//     if (filteredProduct) {
+//       return {
+//         filteredProduct,
+//       };
+//     } else {
+//       redirect("/");
+//     }
+//   },
+// };
+
 import { mapState } from "vuex";
 export default {
   data() {
     return {
       selectedSize: "",
+      product: null,
     };
   },
-  computed: {
-    ...mapState(["allProducts"]),
-    getProduct() {
-      let prod = this.$store.state.allProducts.filter(
-        (product) => product.id == this.$route.params.id
-      );
-      return prod[0];
-    },
+  mounted() {
+    console.log(this.$store.state.allProducts);
+
+    let prod = this.$store.state.allProducts.find(
+      (product) => product.id == this.$route.params.id
+    );
+    this.product = prod;
   },
+  // computed: {
+  //   ...mapState(["allProducts"]),
+  //   getProduct() {
+  //     let prod = this.$store.state.allProducts.find(
+  //       (product) => product.id == this.$route.params.id
+  //     );
+  //     return prod;
+  //   },
+  // },
 };
 </script>
 

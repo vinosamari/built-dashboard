@@ -79,7 +79,7 @@ section {
   @apply flex justify-evenly p-3 text-center;
 }
 .arrivals {
-  @apply md:text-base shadow-2xl bg-black text-white;
+  @apply md:text-base shadow-2xl bg-black text-white capitalize;
 }
 .arrivals p {
   @apply text-xs capitalize;

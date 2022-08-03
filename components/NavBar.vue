@@ -73,7 +73,7 @@ export default {
 
 <style scoped>
 nav {
-  @apply w-full text-sm  md:bg-white md:h-auto shadow-2xl flex-col md:block justify-center items-center relative;
+  @apply w-full text-sm  md:bg-white md:h-auto shadow-2xl flex-col md:block justify-center items-center relative z-50;
 }
 section {
   @apply flex justify-evenly p-3 text-center;

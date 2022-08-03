@@ -6,7 +6,7 @@
         src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/eec16246-5cea-43a1-22c2-efded4575300/square"
         alt=""
     /></slot>
-    <button><slot name="button">Add to cart</slot></button>
+    <!-- <button><slot name="button"></slot></button> -->
   </nuxt-link>
 </template>
 
@@ -47,7 +47,8 @@ input[type="radio"] {
 input[type="radio"]:checked {
   @apply bg-black focus:ring-0;
 } */
-button {
+button,
+h1 {
   @apply bg-black font-mono tracking-widest px-10 py-2 rounded-sm text-white uppercase font-bold mt-2;
 }
 </style>

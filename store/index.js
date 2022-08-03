@@ -2,11 +2,15 @@ export const state = () => ({
   country: "GH",
   showMenu: false,
   allProducts: [],
+  currentProduct: {},
 });
 
 export const mutations = {
   ADD_ITEM: (state, item) => {
     state.allProducts.push(item);
+  },
+  SET_CURRENT_PRODUCT: (state, item) => {
+    state.currentProduct = item;
   },
   CLOSE_MENU: (state) => {
     state.showMenu = false;
@@ -67,5 +71,8 @@ export const actions = {
   },
   toggleMenu: (ctx) => {
     ctx.commit("TOGGLE_MENU");
+  },
+  setProduct: (ctx, item) => {
+    ctx.commit("SET_CURRENT_PRODUCT", item);
   },
 };

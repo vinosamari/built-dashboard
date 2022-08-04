@@ -3,10 +3,11 @@
     <h1 class="header"><slot name="header">Header</slot></h1>
     <slot name="image">
       <img
-        src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/eec16246-5cea-43a1-22c2-efded4575300/square"
+        src="https://i.postimg.cc/GhyXdB8n/PHOTO-2022-03-30-21-17-01.jpg"
         alt=""
     /></slot>
     <!-- <button><slot name="button"></slot></button> -->
+    <h2><slot name="header2"></slot></h2>
   </nuxt-link>
 </template>
 

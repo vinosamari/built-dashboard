@@ -51,7 +51,6 @@
     <h1 class="productName">
       {{ this.$store.state.currentProduct.data.name.toUpperCase() }}
     </h1>
-    <!-- <h1>{{ this.productImages }}</h1> -->
     <!-- IMAGE CAROUSEL -->
     <lingallery :items="this.productImages" />
 

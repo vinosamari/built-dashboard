@@ -5,6 +5,13 @@ export const state = () => ({
   currentProduct: {},
 });
 
+export const getters = {
+  // firstProductPhoto(state) {
+  //   let product = state.currentProduct;
+  //   return product.data.images[0];
+  // },
+};
+
 export const mutations = {
   ADD_ITEM: (state, item) => {
     state.allProducts.push(item);
@@ -43,9 +50,6 @@ export const actions = {
               console.log("AKWAABA");
             }
           });
-        // console.log(longitude);
-        // console.log(latitude);
-        // console.log(position);
       });
     } else {
       console.log("Nothing Happened!");

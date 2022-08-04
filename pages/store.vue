@@ -6,8 +6,9 @@
       :product="product"
     >
       <h1 slot="header">{{ product.data.name }}</h1>
+      <!-- <h2 slot="header2">{{ product.data.images[0] }}</h2> -->
       <img
-        :src="product.data.image_url"
+        :src="product.data.images[0]"
         :alt="product.data.name"
         slot="image"
       />
@@ -24,6 +25,14 @@ export default {
     return {
       products: this.$store.state.allProducts,
     };
+  },
+  computed: {
+    firstImage() {
+      let first = this.products.forEach((product) => {
+        return product.data.images[0];
+      });
+      return first;
+    },
   },
   methods: {},
 };

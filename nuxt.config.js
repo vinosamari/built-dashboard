@@ -62,6 +62,7 @@ export default {
         },
       },
     ],
+    "@nuxtjs/toast",
   ],
 
   // GOOGLE FONTS

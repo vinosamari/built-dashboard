@@ -62,7 +62,15 @@
         <p class="price">₵{{ this.productPrice }}</p>
       </div>
       <p class="desc">Brief description of the piece.</p>
-      <button class="cartButton capitalize">Add to cart</button>
+      <input
+        type="number"
+        name="itemCount"
+        id="itemCount"
+        v-model="itemCount"
+      />
+      <button @click="add2Cart" class="cartButton capitalize">
+        Add to cart
+      </button>
     </div>
   </main>
 </template>
@@ -73,6 +81,7 @@ export default {
   data() {
     return {
       selectedSize: "",
+      itemCount: 1,
     };
   },
   methods: {
@@ -81,6 +90,20 @@ export default {
     },
     goBack() {
       this.$router.go(-1);
+    },
+    toastMsgSuccess: (msg, duration) => {
+      return $nuxt.$toasted.success(msg, {
+        theme: "bubble",
+        position: "top-left",
+        duration,
+        theme: "bubble",
+      });
+    },
+    add2Cart() {
+      this.toastMsgSuccess(
+        `${this.itemCount} ${this.$store.state.currentProduct.data.name} Added!`,
+        1500
+      );
     },
   },
   mounted() {
@@ -146,10 +169,13 @@ focus:ring-0;
 input[type="radio"]:checked {
   @apply bg-black focus:ring-0;
 }
+input[type="number"] {
+  @apply border-black border-2 rounded-md focus:ring-0 w-20;
+}
 .backBtn {
   @apply bg-black w-full flex items-center px-4 py-2 font-bold;
 }
 .cartButton {
-  @apply border-black rounded-md border-2 px-4 py-2 uppercase font-bold;
+  @apply border-black rounded-md border-2 px-4 py-2 uppercase font-bold mb-5 mt-3;
 }
 </style>

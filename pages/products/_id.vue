@@ -62,12 +62,16 @@
         <p class="price">₵{{ this.productPrice }}</p>
       </div>
       <p class="desc">Brief description of the piece.</p>
-      <input
-        type="number"
-        name="itemCount"
-        id="itemCount"
-        v-model="itemCount"
-      />
+      <div class="itemCountDiv">
+        <button @click="decreaseCount">-</button>
+        <input
+          type="number"
+          name="itemCount"
+          id="itemCount"
+          v-model="itemCount"
+        />
+        <button @click="increaseCount">+</button>
+      </div>
       <button @click="add2Cart" class="cartButton capitalize">
         Add to cart
       </button>
@@ -104,6 +108,15 @@ export default {
         `${this.itemCount} ${this.$store.state.currentProduct.data.name} Added!`,
         1500
       );
+    },
+    increaseCount() {
+      this.itemCount += 1;
+    },
+    decreaseCount() {
+      if (this.itemCount <= 1) {
+        return;
+      }
+      this.itemCount -= 1;
     },
   },
   mounted() {
@@ -177,5 +190,8 @@ input[type="number"] {
 }
 .cartButton {
   @apply border-black rounded-md border-2 px-4 py-2 uppercase font-bold mb-5 mt-3;
+}
+.itemCountDiv button {
+  @apply bg-black text-white font-bold p-2 rounded-md;
 }
 </style>

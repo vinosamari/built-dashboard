@@ -1,8 +1,15 @@
+// const vuexLocal = new VuexPersistence({
+//   storage: window.localStorage,
+// });
+
 export const state = () => ({
   country: "GH",
   showMenu: false,
   allProducts: [],
   currentProduct: {},
+  cart: [],
+  cartCount: 1,
+  orderTotal: 0,
 });
 
 export const getters = {
@@ -27,6 +34,41 @@ export const mutations = {
   },
   INIT_PRODUCTS_ARRAY: (state) => {
     state.allProducts = [];
+  },
+  ADD_ITEM_TO_CART: (state, payload) => {
+    let stateCart = state.cart;
+    // ADD THE ITEM TO THE ORDERS ARRAY
+    stateCart.push(payload);
+    // INCREMENT CART COUNT
+    state.cartCount += 1;
+    // INCREMENT ORDER TOTAL
+    // state.orderTotal += payload.price;
+    console.log(state.cart);
+    console.log(state.cartCount);
+    // console.log(state.orderTotal);
+  },
+  UPDATE_CART_ITEM_COUNT: (state, payload) => {
+    let stateCart = state.cart;
+    let itemToUpdate = stateCart.filter(
+      (item) => item.name === payload.name
+    )[0];
+    itemToUpdate.count += 1;
+    state.cartCount += 1;
+    // INCREMENT ORDER TOTAL
+    state.orderTotal += payload.price;
+  },
+  REMOVE_ITEM_FROM_CART: (state, payload) => {
+    let stateCart = state.cart;
+    let item = stateCart[stateCart.indexOf(payload)];
+    state.orderTotal -= payload.price;
+    if (item.count === 1) {
+      stateCart.splice(stateCart.indexOf(payload), 1);
+      toastMsg(`Removed ${item.name} from cart`, 500);
+    } else {
+      item.count -= 1;
+      toastMsg(`${item.count} x ${item.name} left in your cart`, 800);
+    }
+    state.cartCount -= 1;
   },
 };
 
@@ -79,4 +121,28 @@ export const actions = {
   setProduct: (ctx, item) => {
     ctx.commit("SET_CURRENT_PRODUCT", item);
   },
+  addToCart: (ctx, item) => {
+    ctx.commit("ADD_ITEM_TO_CART", item);
+  },
+  updateCart: (ctx, item) => {
+    ctx.commit("UPDATE_CART_ITEM_COUNT", item);
+  },
+  removeFromCart: (ctx, item) => {
+    ctx.commit("REMOVE_ITEM_FROM_CART", item);
+  },
+  cancelOrders: (ctx) => {
+    ctx.commit("EMPTY_CART");
+  },
+  emptyCart: (ctx) => {
+    ctx.commit("EMPTY_CART");
+  },
 };
+
+function toastMsg(msg, duration) {
+  return $nuxt.$toasted.success(msg, {
+    theme: "bubble",
+    position: "top-left",
+    duration,
+    theme: "bubble",
+  });
+}

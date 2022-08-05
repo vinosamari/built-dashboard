@@ -47,13 +47,14 @@
         <span class="text-white ml-2 text-xs">BACK TO STORE</span>
       </button>
     </section>
+
+    <!-- IMAGE CAROUSEL -->
+    <lingallery :items="this.productImages" />
+
     <!-- PRODUCT NAME -->
     <h1 class="productName">
       {{ this.$store.state.currentProduct.data.name.toUpperCase() }}
     </h1>
-    <!-- IMAGE CAROUSEL -->
-    <lingallery :items="this.productImages" />
-
     <div class="priceAndDesc">
       <div class="priceSection">
         <p class="formerPrice text-gray-400 text-sm">
@@ -72,6 +73,7 @@
         />
         <button @click="increaseCount">+</button>
       </div>
+      <!-- ADD TO CART BUTTON -->
       <button @click="add2Cart" class="cartButton capitalize">
         Add to cart
       </button>
@@ -100,10 +102,10 @@ export default {
         theme: "bubble",
         position: "top-left",
         duration,
-        theme: "bubble",
       });
     },
     add2Cart() {
+      this.$store.dispatch("addToCart", this.$store.state.currentProduct);
       this.toastMsgSuccess(
         `${this.itemCount} ${this.$store.state.currentProduct.data.name} Added!`,
         1500
@@ -111,6 +113,7 @@ export default {
     },
     increaseCount() {
       this.itemCount += 1;
+      window.localStorage.setItem("Count", this.itemCount);
     },
     decreaseCount() {
       if (this.itemCount <= 1) {
@@ -127,7 +130,7 @@ export default {
       return item.id == this.$route.params.id;
     });
     this.$store.dispatch("setProduct", prod);
-    // console.log(prod);
+    console.log(prod);
   },
   computed: {
     productImages() {
@@ -167,7 +170,12 @@ main {
 .priceSection {
   @apply my-2;
 }
-
+.desc {
+  @apply mb-8;
+}
+.price {
+  @apply text-2xl;
+}
 section {
   @apply flex justify-evenly;
 }
@@ -183,13 +191,16 @@ input[type="radio"]:checked {
   @apply bg-black focus:ring-0;
 }
 input[type="number"] {
-  @apply border-black border-2 rounded-md focus:ring-0 w-20;
+  @apply border-black border-2 rounded-md focus:ring-0 w-16;
 }
 .backBtn {
   @apply bg-black w-full flex items-center px-4 py-2 font-bold;
 }
 .cartButton {
-  @apply border-black rounded-md border-2 px-4 py-2 uppercase font-bold mb-5 mt-3;
+  @apply border-black rounded-md border-2 px-4 py-2 uppercase font-bold mb-10 mt-3;
+}
+.itemCountDiv {
+  @apply text-center;
 }
 .itemCountDiv button {
   @apply bg-black text-white font-bold p-2 rounded-md;

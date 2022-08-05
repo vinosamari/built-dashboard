@@ -1,5 +1,5 @@
 <template>
-  <hero></hero>
+  <main><hero></hero></main>
 </template>
 
 <script>
@@ -12,4 +12,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+main {
+  @apply min-h-screen;
+}
+</style>

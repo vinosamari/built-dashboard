@@ -20,6 +20,9 @@
 export default {
   mounted() {
     this.$store.dispatch("closeMenu");
+    this.$store.dispatch("getDbProducts");
+    console.log("from STORE PAGE");
+    console.log(this.$store.state.allProducts);
   },
   data() {
     return {

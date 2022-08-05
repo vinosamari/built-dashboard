@@ -32,16 +32,19 @@
       src="https://imagedelivery.net/ZfQ8_LKVeZ_L7rmMFmwmcQ/d671ff36-a00f-4229-38d2-ff5c93baa700/square"
       class="smallLogo md:hidden block"
     />
+
     <button
       class="menuBtn md:hidden"
       @click="$nuxt.$store.dispatch('toggleMenu')"
     >
       <menu-button></menu-button>
     </button>
+    <!-- CART ICON SMALL SCREENS -->
     <button class="cartBtn md:hidden" @click="$nuxt.$router.push('/cart')">
       <cart-icon></cart-icon>
-      <span class="orderTotal">0</span>
+      <span class="orderTotal"> {{ $nuxt.$store.state.cartCount }}</span>
     </button>
+
     <section class="linksSectionMobile" v-show="$nuxt.$store.state.showMenu">
       <div class="mobileLinks">
         <nuxt-link to="/" class="link">Home</nuxt-link>
@@ -50,7 +53,6 @@
         <nuxt-link to="/" class="link">Contact</nuxt-link>
       </div>
       <p class="logo hidden md:block">Logo</p>
-      <!-- CART ICON SMALL SCREENS -->
 
       <div class="locationCurrency">
         <p class="currency">(₵)GHS</p>

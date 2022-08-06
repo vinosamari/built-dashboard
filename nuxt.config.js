@@ -35,6 +35,13 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
     ["nuxt-animejs", { client: true }],
+    [
+      "@nuxtjs/localforage",
+      {
+        name: "gameOfficial_",
+        storeName: "gameOfficialStore_",
+      },
+    ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

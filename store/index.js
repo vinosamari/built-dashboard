@@ -1,22 +1,32 @@
-// const vuexLocal = new VuexPersistence({
-//   storage: window.localStorage,
-// });
-
 export const state = () => ({
   country: "GH",
   showMenu: false,
   allProducts: [],
   currentProduct: {},
   cart: [],
-  cartCount: 1,
+  cartCount: 0,
   orderTotal: 0,
 });
 
 export const getters = {
-  // firstProductPhoto(state) {
-  //   let product = state.currentProduct;
-  //   return product.data.images[0];
-  // },
+  getCurrentProductImages: (state) => {
+    let images = state.currentProduct.data.images;
+    let itemsArr = [];
+    images.forEach((image) => {
+      let imageObj = {
+        id: 0,
+        src: image,
+        thumbnail: image,
+      };
+      imageObj.id += 1;
+      itemsArr.push(imageObj);
+    });
+
+    return itemsArr;
+  },
+  getCurrentProductPrice(state) {
+    return state.currentProduct.data.price;
+  },
 };
 
 export const mutations = {
@@ -43,9 +53,6 @@ export const mutations = {
     state.cartCount += 1;
     // INCREMENT ORDER TOTAL
     // state.orderTotal += payload.price;
-    console.log(state.cart);
-    console.log(state.cartCount);
-    // console.log(state.orderTotal);
   },
   UPDATE_CART_ITEM_COUNT: (state, payload) => {
     let stateCart = state.cart;
@@ -89,20 +96,18 @@ export const actions = {
           .then((result) => {
             let resultData = result.data.plus_code.compound_code;
             if (resultData.includes("Ghana")) {
-              console.log("AKWAABA");
             }
           });
       });
     } else {
-      console.log("Nothing Happened!");
     }
   },
   getDbProducts: (ctx) => {
     let dbProducts = $nuxt.$fire.firestore.collection("products");
     // // LOOP THROUGH THE ARRAY AND FETCH THE DOC DATA AND STORE IN AN ARRAY
     dbProducts.onSnapshot((querySnapshot) => {
-      // INITIALIZE ARRAY BEFORE TAKING IN NEW ITEMS ON SNAPSHOT UPDATE
       ctx.commit("INIT_PRODUCTS_ARRAY");
+      // INITIALIZE ARRAY BEFORE TAKING IN NEW ITEMS ON SNAPSHOT UPDATE
       querySnapshot.forEach((doc) => {
         let changeObj = {
           id: doc.id,

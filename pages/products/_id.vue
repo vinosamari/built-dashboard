@@ -49,18 +49,20 @@
     </section>
 
     <!-- IMAGE CAROUSEL -->
-    <lingallery :items="this.productImages" />
+    <lingallery :items="$nuxt.$store.getters.getCurrentProductImages" />
 
     <!-- PRODUCT NAME -->
     <h1 class="productName">
-      {{ this.$store.state.currentProduct.data.name.toUpperCase() }}
+      {{ $nuxt.$store.state.currentProduct.data.name.toUpperCase() }}
     </h1>
     <div class="priceAndDesc">
       <div class="priceSection">
         <p class="formerPrice text-gray-400 text-sm">
-          <strike>₵{{ this.productPrice + 50 }}</strike>
+          <strike
+            >₵{{ $nuxt.$store.getters.getCurrentProductPrice + 50 }}</strike
+          >
         </p>
-        <p class="price">₵{{ this.productPrice }}</p>
+        <p class="price">₵{{ $nuxt.$store.getters.getCurrentProductPrice }}</p>
       </div>
       <p class="desc">Brief description of the piece.</p>
       <div class="itemCountDiv">
@@ -104,8 +106,12 @@ export default {
         duration,
       });
     },
-    add2Cart() {
+    async add2Cart() {
       this.$store.dispatch("addToCart", this.$store.state.currentProduct);
+      await this.$localForage.setItem(
+        "CurrentProduct",
+        this.$store.state.currentProduct
+      );
       this.toastMsgSuccess(
         `${this.itemCount} ${this.$store.state.currentProduct.data.name} Added!`,
         1500
@@ -122,37 +128,13 @@ export default {
       this.itemCount -= 1;
     },
   },
-  mounted() {
-    // let product = {}
-    console.log(this.$store.state.allProducts);
-
+  beforeMount() {
     let prod = this.$store.state.allProducts.find((item) => {
       return item.id == this.$route.params.id;
     });
     this.$store.dispatch("setProduct", prod);
-    console.log(prod);
   },
-  computed: {
-    productImages() {
-      let images = this.$store.state.currentProduct.data.images;
-      let itemsArr = [];
-      images.forEach((image) => {
-        let imageObj = {
-          id: 0,
-          src: image,
-          thumbnail: image,
-        };
-        console.log(image);
-        imageObj.id += 1;
-        itemsArr.push(imageObj);
-      });
-
-      return itemsArr;
-    },
-    productPrice() {
-      return this.$store.state.currentProduct.data.price;
-    },
-  },
+  computed: {},
 };
 </script>
 

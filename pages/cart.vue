@@ -1,6 +1,9 @@
 <template>
   <main>
-    <div v-if="this.$store.state.cart.length === 0">your cart is empty</div>
+    <div v-if="this.$store.state.cart.length === 0" class="empty">
+      your cart is empty
+      <button @click="goToStore" v-show="!checkedOut">Go to the store</button>
+    </div>
     <div v-else>
       <order-table :checkedOut="checkedOut"></order-table>
       <div class="checkoutSection">
@@ -8,8 +11,32 @@
           <button @click="goToStore" v-show="!checkedOut">
             Continue shopping
           </button>
-          <button @click="proceedToCheckout">Proceed to checkout</button>
-          <div class="customerDetailsSection"></div>
+          <button @click="proceedToCheckout" :disabled="checkedOut">
+            Proceed to checkout
+          </button>
+          <div class="customerDetailsSection">
+            <form v-show="checkedOut">
+              <div>
+                <label for="name">Full Name</label> <input type="text" />
+              </div>
+              <div>
+                <label for="email">Email Address</label> <input type="email" />
+              </div>
+              <div>
+                <label for="phone">Phone No.</label> <input type="tel" />
+              </div>
+              <div>
+                <label for="address">Shipping Address</label>
+                <textarea
+                  name="address"
+                  id="address"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <button>Pay ₵{{ this.$store.state.orderTotal }}</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -82,6 +109,21 @@ main {
   @apply flex flex-col items-center justify-center;
 }
 .buttons button {
+  @apply bg-black font-bold uppercase tracking-wide text-sm px-3 py-1 rounded-md my-3 text-white;
+}
+button:disabled {
+  @apply bg-gray-300 text-gray-500;
+}
+form div {
+  @apply flex flex-col justify-center items-center;
+}
+form button {
+  @apply w-full mx-auto text-xl;
+}
+.empty {
+  @apply text-center my-3 uppercase tracking-wider flex flex-col items-center justify-center;
+}
+.empty button {
   @apply bg-black font-bold uppercase tracking-wide text-sm px-3 py-1 rounded-md my-3 text-white;
 }
 </style>

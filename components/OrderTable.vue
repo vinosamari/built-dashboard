@@ -4,6 +4,10 @@
       <thead>
         <tr class="bg-primary text-center bg-customYellow">
           <th
+            v-show="checkedOut"
+            class="w-1/6 md:min-w-[160px] text-xs md:text-lg md:font-semibold text-black py-4 lg:py-7 px-1 lg:px-2"
+          ></th>
+          <th
             class="w-1/4 md:min-w-[100px] text-xs md:text-lg md:font-semibold text-black py-4 lg:py-7 px-3 lg:px-4 border-l border-transparent"
           >
             No.
@@ -13,11 +17,6 @@
           >
             ITEM
           </th>
-          <!-- <th
-            class="w-1/6 md:min-w-[160px] text-xs md:text-lg md:font-semibold text-black py-4 lg:py-7 px-3 lg:px-4"
-          >
-            DESCRIPTION
-          </th> -->
           <th
             class="w-1/4 md:min-w-[160px] text-xs md:text-lg md:font-semibold text-black py-4 lg:py-7 px-3 lg:px-4"
           >
@@ -31,6 +30,12 @@
       </thead>
       <tbody>
         <tr v-for="order in this.$store.state.cart" :key="order.id">
+          <td
+            v-show="checkedOut"
+            class="text-center text-dark text-xs py-5 px-2 bg-[#F3F6FF] border border-black"
+          >
+            <img :src="order.data.images[0]" :alt="order.data.name" />
+          </td>
           <td
             class="text-center text-dark text-sm py-5 px-2 bg-white border border-black border-l capitalize"
           >

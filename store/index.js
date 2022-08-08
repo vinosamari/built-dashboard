@@ -52,17 +52,21 @@ export const mutations = {
     // INCREMENT CART COUNT
     state.cartCount += payload.count;
     // INCREMENT ORDER TOTAL
-    state.orderTotal += payload.price;
+    state.orderTotal += parseInt(payload.data.price);
+    console.log(stateCart);
   },
   UPDATE_CART_ITEM_COUNT: (state, payload) => {
     let stateCart = state.cart;
-    let itemToUpdate = stateCart.filter(
-      (item) => item.name === payload.name
-    )[0];
-    itemToUpdate.count += 1;
     state.cartCount += payload.count;
+
+    let itemToUpdate = stateCart.filter(
+      (item) => item.data.name === payload.data.name
+    )[0];
+    console.log(itemToUpdate.count);
+
+    itemToUpdate.count += payload.count;
     // INCREMENT ORDER TOTAL
-    state.orderTotal += payload.price;
+    state.orderTotal += parseInt(payload.data.price);
   },
   REMOVE_ITEM_FROM_CART: (state, payload) => {
     let stateCart = state.cart;

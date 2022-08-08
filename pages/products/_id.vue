@@ -126,7 +126,6 @@ export default {
     },
     increaseCount() {
       this.itemCount += 1;
-      window.localStorage.setItem("Count", this.itemCount);
     },
     decreaseCount() {
       if (this.itemCount <= 1) {

@@ -15,7 +15,7 @@ export default {
     // this.$store.dispatch("getUserLocation");
     console.log("Getting DB Products:::");
 
-    this.$store.dispatch("getDbProducts");
+    // this.$store.dispatch("getDbProducts");
   },
 };
 </script>

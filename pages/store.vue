@@ -1,7 +1,8 @@
 <template>
   <div>
+    <!-- <h1>{{ this.$store.state.allProducts }}</h1> -->
     <store-product-card
-      v-for="(product, id) in products"
+      v-for="(product, id) in this.$store.state.allProducts"
       :key="id"
       :product="product"
     >
@@ -18,9 +19,13 @@
 
 <script>
 export default {
+  beforeMount() {
+    console.log("Before store mounts:::");
+    this.$store.dispatch("getDbProducts");
+  },
   mounted() {
     this.$store.dispatch("closeMenu");
-    // console.log("from STORE PAGE");
+    console.log("from STORE PAGE");
     // console.log(this.$store.state.allProducts);
   },
   data() {

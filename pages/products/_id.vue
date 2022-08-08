@@ -50,7 +50,6 @@
 
     <!-- IMAGE CAROUSEL -->
     <lingallery :items="$nuxt.$store.getters.getCurrentProductImages" />
-
     <!-- PRODUCT NAME -->
     <h1 class="productName">
       {{ $nuxt.$store.state.currentProduct.data.name.toUpperCase() }}
@@ -93,9 +92,6 @@ export default {
     };
   },
   methods: {
-    checkProductID: (product) => {
-      return product.id == this.$route.params.id;
-    },
     goBack() {
       this.$router.go(-1);
     },
@@ -107,15 +103,26 @@ export default {
       });
     },
     async add2Cart() {
-      this.$store.dispatch("addToCart", this.$store.state.currentProduct);
-      await this.$localForage.setItem(
-        "CurrentProduct",
-        this.$store.state.currentProduct
-      );
-      this.toastMsgSuccess(
-        `${this.itemCount} ${this.$store.state.currentProduct.data.name} Added!`,
-        1500
-      );
+      let cart = this.$store.state.cart;
+      if (cart.find((item) => item.data.name === this.orderObject.data.name)) {
+        this.$store.dispatch("updateCart", this.orderObject);
+        this.toastMsgSuccess(
+          `1 + ${this.orderObject.data.name.toUpperCase()}`,
+          1500
+        );
+      } else {
+        this.$store.dispatch("addToCart", this.orderObject);
+        this.toastMsgSuccess(
+          `Added ${this.orderObject.data.name.toUpperCase()}`,
+          1500
+        );
+      }
+      // this.$store.dispatch("addToCart", this.orderObject);
+      // // await this.$localForage.setItem("CurrentOrder", this.orderObject);
+      // this.toastMsgSuccess(
+      //   `${this.itemCount} ${this.$store.state.currentProduct.data.name} Added!`,
+      //   1500
+      // );
     },
     increaseCount() {
       this.itemCount += 1;
@@ -134,7 +141,15 @@ export default {
     });
     this.$store.dispatch("setProduct", prod);
   },
-  computed: {},
+  computed: {
+    orderObject() {
+      let obj = {
+        ...this.$store.state.currentProduct,
+        count: this.itemCount,
+      };
+      return obj;
+    },
+  },
 };
 </script>
 
@@ -185,6 +200,6 @@ input[type="number"] {
   @apply text-center;
 }
 .itemCountDiv button {
-  @apply bg-black text-white font-bold p-2 rounded-md;
+  @apply bg-black text-white font-bold p-2 rounded-md w-10;
 }
 </style>

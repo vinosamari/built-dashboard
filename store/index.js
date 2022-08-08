@@ -50,9 +50,9 @@ export const mutations = {
     // ADD THE ITEM TO THE ORDERS ARRAY
     stateCart.push(payload);
     // INCREMENT CART COUNT
-    state.cartCount += 1;
+    state.cartCount += payload.count;
     // INCREMENT ORDER TOTAL
-    // state.orderTotal += payload.price;
+    state.orderTotal += payload.price;
   },
   UPDATE_CART_ITEM_COUNT: (state, payload) => {
     let stateCart = state.cart;
@@ -60,20 +60,20 @@ export const mutations = {
       (item) => item.name === payload.name
     )[0];
     itemToUpdate.count += 1;
-    state.cartCount += 1;
+    state.cartCount += payload.count;
     // INCREMENT ORDER TOTAL
     state.orderTotal += payload.price;
   },
   REMOVE_ITEM_FROM_CART: (state, payload) => {
     let stateCart = state.cart;
     let item = stateCart[stateCart.indexOf(payload)];
-    state.orderTotal -= payload.price;
+    state.orderTotal -= payload.data.price;
     if (item.count === 1) {
       stateCart.splice(stateCart.indexOf(payload), 1);
-      toastMsg(`Removed ${item.name} from cart`, 500);
+      toastMsg(`Removed ${item.data.name} from cart`, 500);
     } else {
       item.count -= 1;
-      toastMsg(`${item.count} x ${item.name} left in your cart`, 800);
+      toastMsg(`${item.count} x ${item.data.name} left in your cart`, 800);
     }
     state.cartCount -= 1;
   },

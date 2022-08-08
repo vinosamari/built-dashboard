@@ -1,6 +1,9 @@
 <template>
   <div>
-    <!-- <h1>{{ this.$store.state.allProducts }}</h1> -->
+    <h1 v-if="!this.$store.state.allProducts" class="loading">Loading...</h1>
+    <h1 class="font-bold uppercase text-xl tracking-wider text-center">
+      Store
+    </h1>
     <store-product-card
       v-for="(product, id) in this.$store.state.allProducts"
       :key="id"
@@ -19,18 +22,16 @@
 
 <script>
 export default {
-  beforeMount() {
-    console.log("Before store mounts:::");
-    this.$store.dispatch("getDbProducts");
+  async beforeMount() {
+    await this.$store.dispatch("getDbProducts");
   },
   mounted() {
     this.$store.dispatch("closeMenu");
-    console.log("from STORE PAGE");
-    // console.log(this.$store.state.allProducts);
+    this.products = this.$store.state.allProducts;
   },
   data() {
     return {
-      products: this.$store.state.allProducts,
+      products: [],
     };
   },
   computed: {
@@ -45,4 +46,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.loading {
+  @apply text-center;
+}
+</style>

@@ -23,6 +23,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~/plugins/flutterwave-vue-v3",
     { src: "~/plugins/lingallery", ssr: false },
     // { src: "~/plugins/vuex-persist", ssr: false },
   ],

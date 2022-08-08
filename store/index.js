@@ -107,7 +107,9 @@ export const actions = {
     }
   },
   getDbProducts: (ctx) => {
-    let dbProducts = $nuxt.$fire.firestore.collection("products");
+    let dbProducts = $nuxt.$fire.firestore
+      .collection("products")
+      .orderBy("name");
     // // LOOP THROUGH THE ARRAY AND FETCH THE DOC DATA AND STORE IN AN ARRAY
     dbProducts.onSnapshot((querySnapshot) => {
       ctx.commit("INIT_PRODUCTS_ARRAY");

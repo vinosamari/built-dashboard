@@ -15,15 +15,18 @@
             Proceed to checkout
           </button>
           <div class="customerDetailsSection">
-            <form v-show="checkedOut">
+            <form v-show="checkedOut" @submit.prevent="payViaService">
               <div>
-                <label for="name">Full Name</label> <input type="text" />
+                <label for="name">Full Name</label>
+                <input type="text" v-model="customerName" />
               </div>
               <div>
-                <label for="email">Email Address</label> <input type="email" />
+                <label for="email">Email Address</label>
+                <input type="email" v-model="customerEmail" />
               </div>
               <div>
-                <label for="phone">Phone No.</label> <input type="tel" />
+                <label for="phone">Phone No.</label>
+                <input type="tel" v-model="customerPhone" />
               </div>
               <div>
                 <label for="address">Shipping Address</label>
@@ -32,9 +35,15 @@
                   id="address"
                   cols="30"
                   rows="10"
+                  v-model="customerAddress"
                 ></textarea>
               </div>
-              <button>Pay ₵{{ this.$store.state.orderTotal }}</button>
+              <button type="submit">
+                Pay ₵{{ this.$store.state.orderTotal }}
+              </button>
+              <!-- <flutterwave-pay-button v-bind="paymentData">
+                Click To Pay
+              </flutterwave-pay-button> -->
             </form>
           </div>
         </div>
@@ -44,7 +53,9 @@
 </template>
 
 <script>
+import { FlutterwavePayButton } from "flutterwave-vue-v3";
 export default {
+  components: { FlutterwavePayButton },
   data() {
     return {
       customerName: "",
@@ -52,10 +63,17 @@ export default {
       customerPhone: "",
       customerAddress: "",
       checkedOut: false,
-      delivery: false,
     };
   },
   methods: {
+    errorToastMsg(msg, duration) {
+      return this.$toasted.error(msg, {
+        theme: "bubble",
+        position: "top-left",
+        duration,
+        theme: "bubble",
+      });
+    },
     proceedToCheckout() {
       this.checkedOut = true;
     },
@@ -74,6 +92,33 @@ export default {
       // EMPTY CART LOGIC
       this.$router.push("/success");
     },
+    payViaService() {
+      if (
+        !this.customerEmail ||
+        !this.customerName ||
+        !this.customerPhone ||
+        !this.customerAddress
+      ) {
+        return this.errorToastMsg("Please fill out the form correctly", 2000);
+      }
+      console.log("Setting local forage items");
+
+      this.setLocalForageItems();
+      console.log("Paying...");
+      this.payWithFlutterwave(this.paymentData);
+    },
+    async setLocalForageItems() {
+      await this.$localForage.setItem("orders", this.$store.state.cart);
+      await this.$localForage.setItem(
+        "orderTotal",
+        this.$store.state.orderTotal
+      );
+      await this.$localForage.setItem("cartCount", this.$store.state.cartCount);
+      await this.$localForage.setItem("customerName", this.customerName);
+      await this.$localForage.setItem("customerEmail", this.customerEmail);
+      await this.$localForage.setItem("customerPhone", this.customerPhone);
+      await this.$localForage.setItem("customerAddress", this.customerAddress);
+    },
   },
   computed: {
     paymentData() {
@@ -82,14 +127,14 @@ export default {
         amount: this.$store.state.orderTotal,
         currency: "GHS",
         payment_options: "mobilemoneyghana",
-        redirect_url: "https://lumenbarandgrill.vercel.app/transaction",
+        redirect_url: "https://gameofficial.vercel.app/order",
         customer: {
           name: this.customerName,
           email: this.customerEmail,
           phone_number: this.customerPhone,
         },
         customizations: {
-          title: "Lumen Bar & Grill",
+          title: "Global Africa Made Exceptional",
           description: "Online order payment",
           logo: "https://gameofficial.vercel.app/_nuxt/img/logo.66ceb6d.png",
         },

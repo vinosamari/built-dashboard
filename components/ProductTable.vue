@@ -2,15 +2,17 @@
   <div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
       <div class="introDiv">
-        <h2 class="font-bold tracking-wide text-xl">Latest Orders</h2>
+        <h2 class="font-bold tracking-wide text-xl dark:text-gray-200">
+          Latest Orders
+        </h2>
         <div class="updateDiv">
           <p>Data updates every 3 hours</p>
           <button>View All Orders</button>
         </div>
       </div>
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-200">
         <thead
-          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-600 dark:text-gray-200"
         >
           <tr>
             <th scope="col" class="w-10">Image</th>
@@ -50,7 +52,9 @@
               <p class="capitalize">{{ item.status }}</p>
             </td>
             <td>
-              <p class="font-semibold text-black">{{ item.amount }}</p>
+              <p class="font-semibold text-black dark:text-gray-200">
+                {{ item.amount }}
+              </p>
             </td>
             <td>
               <svg
@@ -204,10 +208,10 @@ export default {
   @apply flex gap-3 items-center text-xs;
 }
 .updateDiv p {
-  @apply text-gray-500;
+  @apply text-gray-500 dark:text-gray-200;
 }
 button {
-  @apply bg-blue-600 px-8 py-2 rounded-lg shadow-md text-white;
+  @apply bg-blue-600 px-8 py-2 rounded-lg shadow-md text-white mb-4 dark:bg-blue-800;
 }
 table {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;

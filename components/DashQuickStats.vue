@@ -27,7 +27,7 @@ export default {
 
 <style scoped>
 section {
-  @apply shadow-md rounded-xl border-b p-5 my-5 mx-3 grid grid-cols-2 cursor-pointer hover:scale-105 transform transition-all duration-500;
+  @apply shadow-md rounded-xl border-b p-5 my-5 mx-3 grid grid-cols-2 cursor-pointer hover:scale-105 transform transition-all duration-500 dark:shadow-2xl dark:border-none;
 }
 .statDetails {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -43,7 +43,7 @@ section {
 }
 
 .info {
-  @apply text-xs text-gray-400;
+  @apply text-xs text-gray-400 dark:text-gray-200;
 }
 .percentDoughnut {
   @apply mx-auto;

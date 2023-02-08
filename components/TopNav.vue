@@ -65,7 +65,7 @@ export default {};
 
 <style scoped>
 nav {
-  @apply h-20 fixed top-0 w-full flex border-b border-gray-300 bg-white z-50;
+  @apply h-20 fixed top-0 w-full flex border-b border-gray-300 bg-white z-50 dark:bg-gray-800 dark:text-gray-200;
 }
 .logo {
   @apply w-1/5 border-r border-gray-300 flex items-center gap-1;
@@ -87,18 +87,18 @@ nav {
   @apply mx-5 mr-10 w-1/6 text-xl;
 }
 .searchbar {
-  @apply flex bg-gray-50 items-center rounded-2xl shadow p-2 w-1/2 mx-8 px-10 text-sm;
+  @apply flex bg-gray-50 dark:bg-gray-600 items-center rounded-2xl shadow p-2 w-1/2 mx-8 px-10 text-sm;
 }
 input {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  @apply bg-gray-50 ml-5 focus:outline-none w-3/4;
+  @apply bg-gray-50 ml-5 focus:outline-none w-3/4 dark:bg-gray-600;
 }
 .userSection {
   @apply flex items-center gap-1 absolute right-4 text-xs;
 }
 .notifications {
-  @apply rounded-full shadow p-3 mr-4  cursor-pointer hover:scale-125 transform transition-all duration-300 relative;
+  @apply rounded-full shadow p-3 mr-4  cursor-pointer hover:scale-125 transform transition-all duration-300 relative dark:bg-gray-600;
 }
 .badge {
   @apply bg-pink-600 rounded-full h-2 w-2 absolute top-3 right-3 bg-opacity-80;

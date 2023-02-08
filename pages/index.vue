@@ -57,7 +57,7 @@ export default {
 
 <style scoped>
 main {
-  @apply min-h-screen flex-col flex p-10 md:pl-56 pt-20;
+  @apply min-h-screen flex-col flex p-10 md:pl-56 pt-20 dark:bg-gray-800 dark:text-gray-200;
 }
 .dashStats {
   @apply grid grid-cols-3;

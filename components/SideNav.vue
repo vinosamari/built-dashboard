@@ -317,7 +317,7 @@ export default {};
 <style scoped>
 section {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  @apply fixed left-0 top-20 w-1/6 h-full border-r border-gray-300;
+  @apply fixed left-0 top-20 w-1/6 h-full border-r border-gray-300 dark:bg-gray-800;
 }
 .mainLinks {
   @apply h-1/2 flex flex-col items-center py-5 gap-3 px-3;
@@ -326,9 +326,9 @@ section {
   @apply flex flex-col items-center py-5 gap-3 px-3 h-1/2 justify-center mt-4;
 }
 button {
-  @apply flex gap-3 items-center px-8 py-2 rounded-md shadow bg-blue-600 text-white text-sm text-left w-full bg-opacity-95 tracking-wider transform transition-all duration-200;
+  @apply flex gap-3 items-center px-8 py-2 rounded-md shadow bg-blue-600 text-white text-sm text-left w-full bg-opacity-95 tracking-wider transform transition-all duration-200 dark:bg-blue-800;
 }
 button:disabled {
-  @apply bg-transparent text-black shadow-none hover:scale-110;
+  @apply bg-transparent text-black shadow-none hover:scale-110 dark:text-gray-200 dark:bg-gray-600;
 }
 </style>

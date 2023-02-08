@@ -1,27 +1,11 @@
 <template>
   <div>
-    <nav-bar></nav-bar>
-    <Nuxt />
-    <Footer></Footer>
+    <top-nav></top-nav>
+    <side-nav></side-nav>
+    <nuxt />
   </div>
 </template>
 
 <script>
-import NavBar from "~/components/NavBar.vue";
-import Footer from "~/components/Footer.vue";
-export default {
-  components: { NavBar, Footer },
-  beforeMount() {
-    // this.$store.dispatch("getUserLocation");
-    console.log("Getting DB Products:::");
-
-    // this.$store.dispatch("getDbProducts");
-  },
-};
+export default {};
 </script>
-
-<style>
-body {
-  @apply font-mono;
-}
-</style>

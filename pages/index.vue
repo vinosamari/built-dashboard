@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import "tailwindcss/dist/tailwind.css";
 import DashQuickStats from "~/components/DashQuickStats.vue";
 import HeroStats from "~/components/HeroStats.vue";
 export default {

@@ -132,7 +132,7 @@ div {
   @apply relative;
 }
 .value {
-  @apply absolute top-16 font-bold text-sm font-sans tracking-tighter text-gray-600 text-center;
+  @apply absolute top-16 font-bold text-sm font-sans tracking-tighter text-gray-600 text-center dark:text-gray-100;
   right: 7.5rem;
 }
 </style>

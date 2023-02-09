@@ -40,6 +40,11 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
   ],
+  vuex: {
+    modules: {
+      darkMode: "~/store",
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

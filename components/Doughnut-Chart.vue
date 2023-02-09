@@ -114,7 +114,7 @@ export default {
   @apply relative;
 }
 .value {
-  @apply absolute top-12 font-bold text-sm font-sans tracking-tighter text-gray-600;
+  @apply absolute top-12 font-bold text-sm font-sans tracking-tighter text-gray-600 dark:text-white;
   right: 4.7rem;
 }
 </style>

@@ -34,9 +34,9 @@
             'Nov',
             'Dev',
           ]"
-          labelRotate="-1"
-          labelSize="0.4"
-          rounding="2"
+          :labelRotate="-1"
+          :labelSize="0.4"
+          :rounding="2"
           :gradient="['#1e06ff']"
         >
         </bars>

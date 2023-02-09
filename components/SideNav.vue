@@ -68,6 +68,7 @@
               <g>
                 <g>
                   <path
+                    class="fill-current dark:text-white text-black"
                     fill="#333333"
                     d="M152.728,528.008c-63.267,0-114.738-51.469-114.738-114.733c0-63.265,51.472-114.734,114.738-114.734
 				c63.262,0,114.729,51.469,114.729,114.734C267.457,476.539,215.99,528.008,152.728,528.008z M152.728,360.752
@@ -77,6 +78,7 @@
                 </g>
                 <g>
                   <path
+                    class="fill-current dark:text-white text-black"
                     fill="#333333"
                     d="M1124.017,703.674c-63.267,0-114.738-51.465-114.738-114.725c0-63.267,51.472-114.738,114.738-114.738
 				c63.262,0,114.729,51.472,114.729,114.738C1238.745,652.209,1187.278,703.674,1124.017,703.674z M1124.017,536.423
@@ -86,6 +88,7 @@
                 </g>
                 <g>
                   <path
+                    class="fill-current dark:text-white text-black"
                     fill="#333333"
                     d="M638.373,391.099c-103.739,0-188.138-84.396-188.138-188.133S534.634,14.833,638.373,14.833
 				c103.733,0,188.125,84.396,188.125,188.133S742.106,391.099,638.373,391.099z M638.373,77.045
@@ -95,6 +98,7 @@
                 </g>
                 <g>
                   <path
+                    class="fill-current dark:text-white text-black"
                     fill="#333333"
                     d="M1609.674,391.099c-103.737,0-188.137-84.396-188.137-188.133s84.399-188.133,188.137-188.133
 				c103.733,0,188.129,84.396,188.129,188.133S1713.407,391.099,1609.674,391.099z M1609.674,77.045
@@ -107,6 +111,7 @@
                     x="332.296"
                     y="178.864"
                     transform="matrix(0.4637 0.886 -0.886 0.4637 480.4105 -149.1437)"
+                    class="fill-current dark:text-white text-black"
                     fill="#333333"
                     width="62.214"
                     height="286.801"
@@ -117,6 +122,7 @@
                     x="721.561"
                     y="398.765"
                     transform="matrix(0.767 0.6417 -0.6417 0.767 488.2679 -484.7798)"
+                    class="fill-current dark:text-white text-black"
                     fill="#333333"
                     width="380.063"
                     height="62.211"
@@ -124,6 +130,7 @@
                 </g>
                 <g>
                   <polygon
+                    class="fill-current dark:text-white text-black"
                     fill="#333333"
                     points="1216.137,584.88 1176.993,536.524 1473.117,296.842 1512.26,345.197 			"
                   />
@@ -131,6 +138,7 @@
               </g>
               <g>
                 <path
+                  class="fill-current dark:text-white text-black"
                   fill="#333333"
                   d="M223.333,1785.167H82.119c-44.068,0-79.922-36.348-79.922-81.023V761.958
 			c0-44.678,35.854-81.024,79.922-81.024h141.214c44.068,0,79.921,36.346,79.921,81.024v942.185
@@ -141,6 +149,7 @@
               </g>
               <g>
                 <path
+                  class="fill-current dark:text-white text-black"
                   fill="#333333"
                   d="M708.974,1785.167H567.755c-44.066,0-79.917-38.839-79.917-86.578V651.512
 			c0-47.74,35.852-86.579,79.917-86.579h141.218c44.066,0,79.917,38.839,79.917,86.579v1047.077
@@ -151,6 +160,7 @@
               </g>
               <g>
                 <path
+                  class="fill-current dark:text-white text-black"
                   fill="#333333"
                   d="M1194.621,1785.167h-141.21c-44.072,0-79.926-31.604-79.926-70.452V972.037
 			c0-38.848,35.854-70.453,79.926-70.453h141.21c44.072,0,79.926,31.605,79.926,70.453v742.678
@@ -160,6 +170,7 @@
               </g>
               <g>
                 <path
+                  class="fill-current dark:text-white text-black"
                   fill="#333333"
                   d="M1680.271,1785.167h-141.219c-44.067,0-79.917-38.839-79.917-86.578V651.512
 			c0-47.74,35.85-86.579,79.917-86.579h141.219c44.072,0,79.926,38.839,79.926,86.579v1047.077
@@ -174,7 +185,7 @@
       <button disabled>
         <span
           ><svg
-            fill="#000000"
+            class="fill-current dark:text-white text-black"
             height="1.5rem"
             viewBox="0 0 64 64"
             xmlns="http://www.w3.org/2000/svg"
@@ -247,7 +258,7 @@
       <button disabled="disabled">
         <span
           ><svg
-            fill="#000000"
+            class="fill-current dark:text-white text-black"
             height="1.4rem"
             viewBox="0 0 16 16"
             xmlns="http://www.w3.org/2000/svg"
@@ -260,7 +271,7 @@
       <button disabled="disabled">
         <span
           ><svg
-            fill="#000000"
+            class="fill-current dark:text-white text-black"
             height="1.4rem"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
@@ -279,7 +290,7 @@
       <button disabled="disabled">
         <span
           ><svg
-            fill="#000000"
+            class="fill-current dark:text-white text-black"
             height="1.4rem"
             viewBox="0 0 1920 1920"
             xmlns="http://www.w3.org/2000/svg"
@@ -295,7 +306,7 @@
           ><svg
             height="1.4rem"
             viewBox="0 0 24 24"
-            fill="none"
+            class="fill-current dark:text-white text-black"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -326,9 +337,9 @@ section {
   @apply flex flex-col items-center py-5 gap-3 px-3 h-1/2 justify-center mt-4;
 }
 button {
-  @apply flex gap-3 items-center px-8 py-2 rounded-md shadow bg-blue-600 text-white text-sm text-left w-full bg-opacity-95 tracking-wider transform transition-all duration-200 dark:bg-blue-800;
+  @apply flex gap-3 items-center px-8 py-2 rounded-md shadow bg-blue-600 text-white text-sm text-left w-full bg-opacity-95 tracking-wider transform transition-all duration-200 dark:bg-blue-800 cursor-pointer;
 }
 button:disabled {
-  @apply bg-transparent text-black shadow-none hover:scale-110 dark:text-gray-200 dark:bg-gray-600;
+  @apply bg-transparent text-black shadow-none hover:scale-110 dark:text-gray-200 dark:bg-gray-700 cursor-pointer dark:bg-opacity-40 bg-opacity-40;
 }
 </style>
